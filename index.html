@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Horizon Jet Login</title>
+    <style>
+        .admin-btn {
+            position: fixed; /* Ensure the button stays in place */
+            top: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1000; /* Ensure the button stays on top */
+        }
+
+        .admin-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function checkLoginStatus() {
+            // This is a placeholder; replace it with your actual login check logic
+            const isLoggedIn = true; // Set this to true if logged in, false otherwise
+
+            if (!isLoggedIn) {
+                document.querySelector('.admin-btn').classList.add('hidden');
+            } else {
+                document.querySelector('.admin-btn').classList.remove('hidden');
+            }
+        }
+
+        window.addEventListener('load', checkLoginStatus);
+    </script>
+</head>
+<body>
+    <!-- Admin Button -->
+    <button class="admin-btn" onclick="window.location.href='admin-dashboard.html'">Admin</button>
+
+    <div class="container">
+        <!-- Background Video -->
+        <video autoplay loop muted playsinline class="background-clip">
+            <source src="images.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Logo and Welcome Message -->
+    <div class="logo-container">
+        <img src="Skyport.PNG" alt="Skyport Logo" class="logo">
+        <h1>Horizon Airlines</h1>
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        <h2>Welcome to Horizon Airlines</h2>
+    </div>
+
+    <!-- Login Box -->
+    <div class="login-box">
+        <div class="login-header">
+            <header>User Login</header>
+        </div>
+        
+        <!-- Login Form -->
+        <form action="login.php" method="POST">
+            <!-- Email Input -->
+            <div class="input-box">
+                <input type="email" name="email" class="input-field" placeholder="Email" autocomplete="off" required>
+            </div>
+            
+            <!-- Password Input -->
+            <div class="input-box">
+                <input type="password" name="password" class="input-field" placeholder="Password" autocomplete="off" required>
+            </div>
+
+            <!-- Remember Me and Forgot Password -->
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="check">
+                    <label for="check">Remember me</label>
+                </section>
+                <section>
+                    <a href="forgot-password.html">Forgot your credentials?</a>       
+                </section>
+            </div>
+
+            <!-- Sign-In Button -->
+            <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+
+        <!-- Sign-Up Link -->
+        <div class="sign-up-link">
+            <p>Not a Member? <a href="signup.html">Join Now!</a></p>
+        </div>
+    </div>
+</body>
+</html>

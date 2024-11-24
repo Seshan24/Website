@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Horizon Jet Admin Signup</title>
+    <style>
+        /* You can add your custom styles here */
+        .admin-btn {
+            position: fixed; /* Ensure the button stays in place */
+            top: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1000; /* Ensure the button stays on top */
+        }
+
+        .admin-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Admin Button -->
+    <button class="admin-btn" onclick="window.location.href='admin-dashboard.html'">Admin Dashboard</button>
+
+    <div class="container">
+        <!-- Background Video -->
+        <video autoplay loop muted playsinline class="background-clip">
+            <source src="images.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Logo and Welcome Message -->
+    <div class="logo-container">
+        <img src="Skyport.PNG" alt="Skyport Logo" class="logo">
+        <h1>Horizon Jet</h1>
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        <h2>Welcome to Horizon Airlines - Admin Signup</h2>
+    </div>
+
+    <!-- Signup Box -->
+    <div class="login-box">
+        <div class="login-header">
+            <header>Create Admin Account</header>
+        </div>
+        
+        <!-- Signup Form -->
+        <form action="admin-signup.php" method="POST">
+            <!-- Username Input -->
+            <div class="input-box">
+                <input type="text" name="username" class="input-field" placeholder="Username" autocomplete="off" required>
+            </div>
+
+            <!-- Email Input -->
+            <div class="input-box">
+                <input type="email" name="email" class="input-field" placeholder="Admin Email" autocomplete="off" required>
+            </div>
+
+            <!-- Password Input -->
+            <div class="input-box">
+                <input type="password" name="password" class="input-field" placeholder="Password" autocomplete="off" required>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="input-box">
+                <input type="password" name="confirm_password" class="input-field" placeholder="Confirm Password" autocomplete="off" required>
+            </div>
+
+            <!-- Signup Button -->
+            <button type="submit" class="submit-btn">Create Admin Account</button>
+        </form>
+
+        <!-- Sign-In Link -->
+        <div class="sign-up-link">
+            <p>Already an Admin? <a href="admin-login.html">Login Now!</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

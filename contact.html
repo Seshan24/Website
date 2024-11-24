@@ -1,0 +1,390 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Contact Us - Horizon Airlines
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        main {
+            flex: 1; /* Ensures the footer stays at the bottom */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c2841;
+            padding: 19px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            width: 90px; /* Adjust size as needed */
+            height: auto;
+        }
+
+        .menu-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .menu li {
+            margin: 0 20px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: darkgrey;
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            width: 80%;
+            max-width: 1600px; /* For larger desktop screens */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 120px auto; /* Center the container and add margin for the navbar */
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-container p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .map-container {
+            margin: 20px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 500px; /* Increased height for better desktop view */
+            border: none;
+            border-radius: 10px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form label {
+            margin-bottom: 5px;
+            color: #555;
+            text-align: left;
+            width: 100%; /* Full width for desktop */
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%; /* Wider input fields for desktop */
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 250px; /* Wider button for desktop */
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-details img {
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .contact-details p {
+            display: flex;
+            align-items: center;
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .lds-roller {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-roller div {
+            animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            transform-origin: 40px 40px;
+        }
+        .lds-roller div:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 7.2px;
+            height: 7.2px;
+            border-radius: 50%;
+            background: grey;
+            margin: -3.6px 0 0 -3.6px;
+        }
+        .lds-roller div:nth-child(1) {
+            animation-delay: -0.036s;
+        }
+        .lds-roller div:nth-child(1):after {
+            top: 62.62742px;
+            left: 62.62742px;
+        }
+        .lds-roller div:nth-child(2) {
+            animation-delay: -0.072s;
+        }
+        .lds-roller div:nth-child(2):after {
+            top: 67.71281px;
+            left: 56px;
+        }
+        .lds-roller div:nth-child(3) {
+            animation-delay: -0.108s;
+        }
+        .lds-roller div:nth-child(3):after {
+            top: 70.90963px;
+            left: 48.28221px;
+        }
+        .lds-roller div:nth-child(4) {
+            animation-delay: -0.144s;
+        }
+        .lds-roller div:nth-child(4):after {
+            top: 72px;
+            left: 40px;
+        }
+        .lds-roller div:nth-child(5) {
+            animation-delay: -0.18s;
+        }
+        .lds-roller div:nth-child(5):after {
+            top: 70.90963px;
+            left: 31.71779px;
+        }
+        .lds-roller div:nth-child(6) {
+            animation-delay: -0.216s;
+        }
+        .lds-roller div:nth-child(6):after {
+            top: 67.71281px;
+            left: 24px;
+        }
+        .lds-roller div:nth-child(7) {
+            animation-delay: -0.252s;
+        }
+        .lds-roller div:nth-child(7):after {
+            top: 62.62742px;
+            left: 17.37258px;
+        }
+        .lds-roller div:nth-child(8) {
+            animation-delay: -0.288s;
+        }
+        .lds-roller div:nth-child(8):after {
+            top: 56px;
+            left: 12.28719px;
+        }
+        @keyframes lds-roller {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <!-- Loading icon -->
+  <div class="loading-screen" id="loading-screen">
+   <div class="lds-roller">
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+   </div>
+  </div>
+  <!-- Navigation Bar/ nav headd -->
+  <div class="navbar">
+   <div class="logo-container">
+    <a href="home.php">
+     <img alt="Skyport Logo" height="90" src="Skyport.png" width="90"/>
+    </a>
+   </div>
+   <div class="menu-container">
+    <ul class="menu">
+        <li><a href="booking.php">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+   </div>
+   <a class="logout-btn" href="logout.php">
+    Logout
+   </a>
+  </div>
+  <div class="contact-container">
+   <h2>
+    Contact Us
+   </h2>
+   <div class="contact-details">
+    <p>
+     <img alt="Phone icon" height="20" src="call.png" width="20"/>
+     +94771967475
+    </p>
+    <p>
+     <img alt="Phone icon" height="20" src="call.png" width="20"/>
+     +94788621242
+    </p>
+    <p>
+     <img alt="Phone icon" height="20" src="call.png" width="20"/>
+     +94713052864
+    </p>
+    <p>
+     <img alt="Phone icon" height="20" src="call.png" width="20"/>
+     +94710727953
+    </p>
+   </div>
+   <p>
+    <strong>
+     Additional notes:
+    </strong>
+    <br/>
+    Call our 24/7 Contact Centre if you need assistance with your booking. International rates are applicable.
+   </p>
+   <div class="map-container">
+    <iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31621.669180388098!2d79.87502730719342!3d6.821973264343659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a5128dfb2d7%3A0x30c0bf66eafe0e61!2sColombo%20International%20Airport%20Ratmalana!5e0!3m2!1sen!2slk!4v1697893143071!5m2!1sen!2slk">
+    </iframe>
+   </div>
+   <div class="contact-form">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between w-full md:w-4/5">
+     <label class="md:w-1/4 text-left" for="name">
+      Your Name:
+     </label>
+     <input class="md:w-3/4" id="name" name="name" placeholder="Enter your name" required="" type="text"/>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between w-full md:w-4/5">
+     <label class="md:w-1/4 text-left" for="email">
+      Your Email:
+     </label>
+     <input class="md:w-3/4" id="email" name="email" placeholder="Enter your email" required="" type="email"/>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between w-full md:w-4/5">
+     <label class="md:w-1/4 text-left" for="message">
+      Your Message:
+     </label>
+     <textarea class="md:w-3/4" id="message" name="message" placeholder="Enter your message" required="" rows="5" style="text-align: left;"></textarea>
+    </div>
+    <button type="submit">
+     Send Message
+    </button>
+   </div>
+  </div>
+  <footer class="bg-white shadow mt-10">
+   <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+    <p class="text-gray-600">
+     © 2024 Horizon Airlines. All rights reserved.
+    </p>
+    <nav class="space-x-4">
+     <a class="text-gray-600 hover:text-gray-800" href="#">
+      Privacy Policy
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="#">
+      Terms of Service
+     </a>
+    </nav>
+   </div>
+  </footer>
+  <script>
+   document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("loading-screen").style.display = "none";
+            }, 3000);
+        });
+  </script>
+ </body>
+</html>

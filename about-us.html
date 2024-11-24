@@ -1,0 +1,382 @@
+<html lang="en">
+<head>
+<!-- Meta tags and title -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us - Horizon Airlines</title>
+ 
+    <script src="https://cdn.tailwindcss.com"></script> <!-- use to make slide show appearance look good -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1; /* Ensures the footer stays at the bottom */
+        }
+
+        .navbar {  /* navhead */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c2841;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            height: 80px; /* Adjust based on your logo size */
+            width: auto;
+        }
+
+        .menu-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .menu li {
+            margin: 0 20px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: darkgrey;
+        }
+           
+        .slideshow-container { /* Rounded edges */
+            max-width: 3000px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 5%; 
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            position: relative;
+        }
+
+        .mySlides img {
+            width: 1600%;
+            height: 90vh; /* Full screen height */
+            object-fit: cover;
+            border-radius: 10%; /* Rounded edges */
+        }
+
+        .slideshow-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            animation: fadeOut 20s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .testimonial-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .testimonial-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-section .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .testimonial img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .testimonial .person {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .testimonial .rating {
+            color: #ffcc00;
+        }
+
+        .partners-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .partners-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .partners-section .partners {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .partner {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 150px;
+            text-align: center;
+        }
+
+        .partner img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo-container">
+            <a href="home.php">
+                <img alt="Skyport Logo" class="logo" src="Skyport.PNG"/>
+            </a>
+        </div>
+        <div class="menu-container">
+            <ul class="menu">
+                <li><a href="booking.php">Booking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+        <a class="logout-btn" href="logout.php">Logout</a>
+    </div>
+    <main class="container mx-auto px-4 py-10">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">About Horizon Airlines</h1>
+        <!-- Slideshow box with images -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img alt="A modern airplane flying over a cityscape during sunset" src="pic6.jpg"/>
+                <div class="slideshow-text">Welcome to Horizon Airlines! We are committed to providing the highest quality service and ensuring a comfortable and enjoyable travel experience for all our passengers.</div>
+            </div>
+            <div class="mySlides fade">
+                <img alt="Interior view of a luxurious airplane cabin with passengers" src="pic3.webp"/>
+            </div>
+            <div class="mySlides fade">
+                <img alt="Airplane taking off from a runway with mountains in the background" src="pic5.jpg"/>
+            </div>
+            <div class="mySlides fade">
+                <img alt="Airplane flying above the clouds with a clear blue sky" src="pic1.jpg"/>
+            </div>
+            <div class="mySlides fade">
+                <img alt="Airplane parked at an airport gate with ground crew working" src="pic7.jpg"/>
+            </div>
+        </div>
+        <!-- Testimonial Section -->
+        <div class="testimonial-section">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="person">
+                        <img alt="Pretty woman with long hair and smiling face" height="50" src="https://storage.googleapis.com/a1aa/image/DqgiNV2TzULsE5gUfNlO8r4FXeeO31zjvxqyZjKBsrFCxpjnA.jpg" width="50"/>
+                        <span>Jane Doe</span>
+                    </div>
+                    <p>Best customer service! Always a pleasure to fly with Horizon Airlines.</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="testimonial">
+                    <div class="person">
+                        <img alt="Handsome man with short hair and beard" height="50" src="dhakshina.PNG" width="50"/>
+                        <span>Dhakshina Perera </span>
+                    </div>
+                    <p>Overall Satisfied with the Service I Recommended</p>
+                    <div class="rating">★★★</div>
+                </div>
+                <div class="testimonial">
+                    <div class="person">
+                        <img alt="Beautiful woman with curly hair and bright smile" height="50" src="https://storage.googleapis.com/a1aa/image/nmOh56Nlv9pVAFUa95JOs7QsxxAYILaKDHf5AMmLgVTTc64JA.jpg" width="50"/>
+                        <span>Emily Johnson</span>
+                    </div>
+                    <p>Always on time and the staff is very friendly. Great experience!</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="testimonial">
+                    <div class="person">
+                        <img alt="Attractive man with glasses and short hair" height="50" src="tharusha.jpg" width="50"/>
+                        <span>Tharusha Dishan</span>
+                    </div>
+                    <p>Best Service</p>
+                    <div class="rating">★★★★</div>
+                </div>
+                <div class="testimonial">
+                    <div class="person">
+                        <img alt="Charming woman with short blonde hair" height="50" src="https://storage.googleapis.com/a1aa/image/EIANwTagGJYcEF3z1DD3z1jcOfiICgIRQDVhfkMVjDTi40xTA.jpg" width="50"/>
+                        <span>Janudi Lihansa</span>
+                    </div>
+                    <p>Great in-flight entertainment and excellent customer service.</p>
+                    <div class="rating">★★★★</div>
+                </div>
+                <div class="testimonial">
+                    <div class="person">
+                        <img alt="Stylish man with beard and hat" height="50" src="sesh.PNG" width="50"/>
+                        <span>Seshan Rodrigo</span>
+                    </div>
+                    <p>Very smooth flights and the staff is very accommodating.</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+        </div>
+        <!-- Partners Section -->
+        <div class="partners-section">
+            <h2>Our Partners</h2>
+            <div class="partners">
+               
+               
+                <div class="partner">
+                    <img alt="Adobe Logo" src="adobe.png"/>
+                    <span>Adobe</span>
+                </div>
+                <div class="partner">
+                    <img alt="Facebook Logo" src="facebook.png"/>
+                    <span>Facebook</span>
+                </div>
+                <div class="partner">
+                    <img alt="Nike logo" src="nike.jpg"/>
+                    <span>Nike</span>
+                </div>
+              
+                <div class="partner">
+                    <img alt="Apple Logo" src="apple.png"/>
+                    <span>Apple</span>
+                </div>
+                <div class="partner">
+                    <img alt="Harman Logo" src="harman.jpg"/>
+                    <span>Harmon Kardon</span>
+                </div>
+                <div class="partner">
+                    <img alt="Bose Logo" src="bose.jpg"/>
+                    <span>Bose</span>
+                </div>
+                <div class="partner">
+                    <img alt="Michelin Logo" src="michelin-logo-6.png"/>
+                    <span>Michelin</span>
+                </div>
+                <div class="partner">
+                    <img alt="master card Logo" src="visa-mastercard-logos.png"/>
+                    <span>Visa/MasterCard</span>
+                </div>
+               
+                <div class="partner">
+                    <img alt="Bose Logo" src="sony.jpg"/>
+                    <span>Sony</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-white shadow mt-10">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <p class="text-gray-600">&copy; 2024 Horizon Airlines. All rights reserved.</p>
+            <nav class="space-x-4">
+                <a href="#" class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                <a href="#" class="text-gray-600 hover:text-gray-800">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            let descriptionPopup = document.getElementById("description-popup");
+            if (st > lastScrollTop) {
+                // Scroll down
+                descriptionPopup.style.opacity = "0";
+            } else {
+                // Scroll up
+                descriptionPopup.style.opacity = "1";
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        }, false);
+    </script>
+</body>
+</html>

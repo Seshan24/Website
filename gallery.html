@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Horizon Airlines</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            padding-top: 60px; /* To avoid navbar overlap */
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:  #1c2841;
+            padding: 19.5px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            width: 90px;
+            height: auto;
+        }
+
+        .menu-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .menu li {
+            margin: 0 20px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: darkgrey;
+        }
+
+        /* Slideshow box */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%; /* Adjust max-width for only desktop */
+            margin: 200px; /* Center the slideshow  */
+            border-radius: 50px; /* Rounded corners */
+            overflow: hidden; /* smooth rounded corners */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6); /*   shadow */
+            margin-top: 61px; /* navbar height */
+        }
+
+        .slides {
+            display: none;
+            opacity: 0;
+            transition: opacity 2s ease-in-out; /* Fade effect */
+        }
+
+        .show {
+            display: block;
+            opacity: 1;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.0);
+            border: none;
+            cursor: pointer;
+            border-radius: 100%;
+            transform: translate(0, -50%);
+        }
+
+        .prev {
+            left: 12px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Text inside slideshow */
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            right: 16px;
+            text-align: center;
+            transform: translateY(50px);
+            transition: transform 3s ease-in-out; /* Slide effect for text */
+        }
+
+        .text.show-text {
+            transform: translateY(0); /* Slide in the text */
+        }
+
+        @media (max-width: 768px) {
+            .slideshow-container {
+                max-width: 95%; /* For smaller screens, take up more space */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo-container">
+            <a href="home.php"><img src="Skyport.PNG" alt="Skyport Logo" class="logo"></a>
+        </div>
+        <div class="menu-container">
+            <ul class="menu">
+                <li><a href="booking.php">Booking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+        <a href="logout.php" class="logout-btn">Logout</a>
+    </div>
+
+    <!-- Slideshow included pictures-->
+    <div class="slideshow-container">
+        <!-- Slides -->
+        <div class="slides fade">
+            <img src="office.jpg" style="width:100%; height: auto;">
+            <div class="text">Head Office</div>
+        </div>
+        <div class="slides fade">
+            <img src="parking.jpg" style="width:auto; height: auto;">
+            <div class="text">Colombo</div>
+        </div>
+        <div class="slides fade">
+            <img src="cmb.jpg" style="width:auto; height: auto;">
+            <div class="text">Colombo</div>
+        </div>
+        <div class="slides fade">
+            <img src="maldives.jpg" style="width:100%; height: auto;">
+            <div class="text">Maldives</div>
+        </div>
+
+        <!-- Left and right arrows -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Link to the JS file -->
+    <script src="gallery.js"></script>
+
+</body>
+</html>
